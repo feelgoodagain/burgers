@@ -10,6 +10,10 @@
     width: 260rem;
 }
 
+.ContentBox {
+    padding-left: 25rem;
+}
+
 img {
     width: 100%;
 }
@@ -20,13 +24,13 @@ img {
     margin: 0;
 }
 
-.Des{
+.Des {
     color: #bbb;
     font-size: 22rem;
     padding-right: 45rem;
 }
 
-.PriceTag{
+.PriceTag {
     display: flex;
     margin-top: 40rem;
     justify-content: space-between;

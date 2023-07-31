@@ -1,7 +1,7 @@
 import React from 'react';
 import classes from "./Counter.module.css"
-
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus,faMinus } from '@fortawesome/free-solid-svg-icons';
 //order items counter component
 function Counter(props) {
     return (
@@ -10,7 +10,8 @@ function Counter(props) {
             {(props.amount && props.amount != 0) ?
                 <>
                     <button className={classes.Minus}>
-                        <span>-</span>
+                        <FontAwesomeIcon icon={faMinus} />
+
                     </button>
                     <span className={classes.Count}>{props.amount}</span>
 
@@ -18,9 +19,9 @@ function Counter(props) {
                 : null
             }
 
-            <button className={classes.Plus}>
-                <span>+</span>
-            </button>
+            <div className={classes.Plus}>
+                <FontAwesomeIcon icon={faPlus} />
+            </div>
         </div>
     );
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import classes from "./Meal.module.css"
 import Counter from "../../UI/Counter/Counter.jsx";
 function Meal() {
@@ -8,6 +8,9 @@ function Meal() {
                 <img src="\img\1.png" />
             </div>
             <div>
+                
+            </div>
+            <div className={classes.ContentBox}>
                 <h2 className={classes.Title}>
                     burger
                 </h2>
