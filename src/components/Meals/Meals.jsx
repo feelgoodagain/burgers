@@ -6,7 +6,7 @@ function Meals(props) {
         <div className={classes.MealsBox}>
             {
                 props.mealsData.map((item) =>
-                    <Meal key={item.title}/>
+                    <Meal key={item.title} meal={item}/>
                 )
             }
         </div>

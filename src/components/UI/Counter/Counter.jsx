@@ -1,19 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import classes from "./Counter.module.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPlus,faMinus } from '@fortawesome/free-solid-svg-icons';
+import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
+import CartContext from '../../store/CartContext';
 //order items counter component
-function Counter(props) {
-    return (
-        <div className={classes.Counter}>
 
-            {(props.amount && props.amount != 0) ?
+const Counter = (props) => {
+    const cartCtx = useContext(CartContext)
+    const changeItem = (meal, action) => {
+        cartCtx.changeItem(meal, action)
+    }
+    return (
+        <div className={classes.Counter} onClick={() => { changeItem(props.meal)}}>
+            {(props.meal.amount && props.meal.amount != 0) ?
                 <>
                     <button className={classes.Minus}>
                         <FontAwesomeIcon icon={faMinus} />
-
                     </button>
-                    <span className={classes.Count}>{props.amount}</span>
+                    <span className={classes.Count}>{props.meal.amount}</span>
 
                 </>
                 : null
