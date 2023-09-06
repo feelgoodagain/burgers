@@ -7,24 +7,26 @@ import CartContext from '../../store/CartContext';
 
 const Counter = (props) => {
     const cartCtx = useContext(CartContext)
-    const changeItem = (meal, action) => {
-        cartCtx.changeItem(meal, action)
+    const changeItem = (e, meal) => {
+        if (e.target.id) {
+            cartCtx.changeItem(meal, e.target.id)
+        }
     }
     return (
-        <div className={classes.Counter} onClick={() => { changeItem(props.meal)}}>
+        <div className={classes.Counter} onClick={(e) => { changeItem(e, props.meal) }}>
             {(props.meal.amount && props.meal.amount != 0) ?
                 <>
-                    <button className={classes.Minus}>
-                        <FontAwesomeIcon icon={faMinus} />
-                    </button>
+                    <div className={classes.Minus} >
+                        <FontAwesomeIcon icon={faMinus} id='remove'/>
+                    </div>
                     <span className={classes.Count}>{props.meal.amount}</span>
 
                 </>
                 : null
             }
 
-            <div className={classes.Plus}>
-                <FontAwesomeIcon icon={faPlus} />
+            <div className={classes.Plus} >
+                <FontAwesomeIcon icon={faPlus} id='add'/>
             </div>
         </div>
     );

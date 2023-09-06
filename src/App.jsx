@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import CartContext from './components/store/CartContext';
 import './App.css'
 import Meals from "./components/Meals/Meals.jsx";
-
+import Filter from './components/Filter/Filter';
 
 function App() {
 
@@ -26,7 +26,6 @@ function App() {
   })
   const changeItem = (meal, action) => {
     const newCart = { ...cartData }
-    console.log(action);
     switch (action) {
       case 'add':
         if (newCart.items.indexOf(meal) === -1) {
@@ -48,11 +47,11 @@ function App() {
         break;
     }
     setCartData(newCart)
-    console.log(newCart);
   }
   return (
     <CartContext.Provider value={{ ...cartData, changeItem }}>
       <div>
+        <Filter />
         <Meals mealsData={meals}></Meals>
       </div>
     </CartContext.Provider >

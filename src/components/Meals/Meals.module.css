@@ -1,6 +1,7 @@
 .MealsBox {
     position: absolute;
-    top: 0;
+    top: 120rem;
     bottom: 0;
     overflow: auto;
+    border-bottom: 1px solid black;
 }
