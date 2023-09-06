@@ -1,6 +1,6 @@
 import React from 'react';
 import Meal from "./Meal/Meal.jsx"
-import classes from "./Meals.module.css"
+import classes from "./Meals.module.scss"
 function Meals(props) {
     return (
         <div className={classes.MealsBox}>

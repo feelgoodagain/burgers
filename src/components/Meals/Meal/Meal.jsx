@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import classes from "./Meal.module.css"
+import classes from "./Meal.module.scss"
 import Counter from "../../UI/Counter/Counter.jsx";
 function Meal(props) {
     return (

@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
-import './index.css'
+import './index.scss'
 
 document.documentElement.style.fontSize = 100 / 750 + 'vw';
 

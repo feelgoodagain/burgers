@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import classes from "./Counter.module.css"
+import classes from "./Counter.module.scss"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import CartContext from '../../store/CartContext';

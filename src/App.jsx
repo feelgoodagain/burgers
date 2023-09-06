@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import CartContext from './components/store/CartContext';
-import './App.css'
+import './App.scss'
 import Meals from "./components/Meals/Meals.jsx";
 import Filter from './components/Filter/Filter';
+import Cart from "./components/Cart/Cart"
 
 function App() {
-
+  // TODO: 1.change all the css file into scss format
   // data retrieved from backend server API
   let MEALS_DATA = [
     { id: 1, title: 'whopper', amount: 0, price: 12 },
@@ -48,11 +49,18 @@ function App() {
     }
     setCartData(newCart)
   }
+
+  const filterHandler = (keywords) => {
+    console.log(keywords);
+    const New_MEALS_DATA = MEALS_DATA.filter(item => item.title.indexOf(keywords) !== -1)
+    setMeals(New_MEALS_DATA)
+  }
   return (
     <CartContext.Provider value={{ ...cartData, changeItem }}>
       <div>
-        <Filter />
+        <Filter filterHandler={filterHandler} />
         <Meals mealsData={meals}></Meals>
+        <Cart></Cart>
       </div>
     </CartContext.Provider >
   )
