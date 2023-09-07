@@ -1,17 +1,21 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import classes from './Cart.module.scss'
-import IconImg from '../../assets/bag.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBagShopping } from '@fortawesome/free-solid-svg-icons'
+import CartContext from '../store/CartContext'
 export default function Cart() {
+    const cartCtx = useContext(CartContext)
     return (
         <div className={classes.Cart}>
             <div className={classes.Icon}>
                 <FontAwesomeIcon icon={faBagShopping} />
-                <span className={classes.TotalAmount}>$222</span>
+                {cartCtx.totalAmount ?
+                    (<span className={classes.TotalAmount}>{cartCtx.totalAmount}</span>) : null
+                }
             </div>
-            <p className={classes.Price}>24</p>
-            <button>Checkout</button>
-        </div>
+
+            <p className={cartCtx.totalPrice?classes.Price:`${classes.Price} ${classes.NoProduct}`}>{cartCtx.totalPrice ? `$${cartCtx.totalPrice}` : 'None product selected'}</p>
+            <button className={classes.CheckoutButton}>Checkout</button>
+        </div >
     )
 }
